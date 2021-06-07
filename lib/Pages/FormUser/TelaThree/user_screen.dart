@@ -18,6 +18,7 @@ class UserScreen extends StatelessWidget {
       child: Scaffold(
         body: Container(
           decoration: BoxDecoration(gradient: AppGradients.linear),
+          
           child: Center(
             child: CardUser(
               size: 0.7,
@@ -29,13 +30,18 @@ class UserScreen extends StatelessWidget {
                   }
                   if (snapshot.hasData) {
                     return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.file(
                           File(snapshot.data!.photo!),
-                          height: 250,
+                          height: 300,
                         ),
                         Text(
-                            '${snapshot.data!.name} ${snapshot.data!.surName}'),
+                            '${snapshot.data!.name} ${snapshot.data!.surName}',
+                            style: TextStyle(
+                              fontSize: 25
+                            ),
+                          ),
                       ],
                     );
                   }
